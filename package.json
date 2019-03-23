@@ -1,4 +1,47 @@
 {
+  "name": "IFMatriz",
+  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Web App feito para disciplinar de Calculo I - 2018.02, realizar operações com matrizes quadradas",
+  "author": {
+    "name": "Tiago Danin",
+    "email": "TiagoDanin@outlook.com",
+    "url": "https://TiagoDanin.github.io"
+  },
+  "license": "MIT",
+  "keywords": [
+    "matriz",
+    "ifpa",
+    "belem",
+    "para",
+    "calculo",
+    "math"
+  ],
+  "scripts": {
+    "start": "npx webpack",
+    "build": "npx webpack --mode production",
+    "test": "node tests.js"
+  },
+  "private": false,
+  "repository": "https://github.com/IFPABelem/IFMatriz.git",
+  "homepage": "https://IFPABelem.github.io/IFMatriz",
+  "bugs": "https://github.com/IFPABelem/IFMatriz/issues",
+  "github": {
+    "name": "IFMatriz",
+    "owner": "IFPABelem"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist",
+    "index.html",
+    "index.js",
+    "operacoes",
+    "package.json",
+    "tests.js",
+    "webpack.config.js",
+    "yarn.lock"
+  ],
   "devDependencies": {
     "webpack": "4.17.1",
     "webpack-cli": "3.1.2"
