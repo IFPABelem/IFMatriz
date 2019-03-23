@@ -1,0 +1,44 @@
+<div class="uk-align-center">
+	<h1>
+		<span class="uk-text-primary uk-text-bold">IFMatriz</span>
+	</h1>
+
+	<div>
+		<h2 class="uk-card-title">Informação</h2>
+		<p>Esse aplicativo foi criado por alunos da IFPA e tem como objetivo usar o conhecimento adquiro na matéria de "Calculo I"....</p>
+
+		<form role="form">
+			<select class="uk-select" id="sl:ordem" value="3">
+				<option>10</option>
+				<option>9</option>
+				<option>8</option>
+				<option>7</option>
+				<option>6</option>
+				<option>5</option>
+				<option>4</option>
+				<option>3</option>
+				<option>2</option>
+				<option>1</option>
+			</select>
+			<button id="bt:load" type="button" class="uk-button uk-button-danger uk-button-small" style="width: 100%;">Obter Resultados<i class="ti-arrow-right"></i></button>
+		</form>
+	</div>
+	</br>
+	<div class="uk-child-width-1-2@s uk-child-width-1-2@m uk-text-center" uk-grid="">
+		<div>
+			<h2 class="uk-card-title">Matriz A</h2>
+			<div id="matriz:a" uk-grid></div>
+		</div>
+		<div>
+			<h2 class="uk-card-title">Matriz B</h2>
+			<div id="matriz:b" uk-grid></div>
+		</div>
+	</div>
+</div>
+</br>
+<div id="hidden" class="uk-hidden">
+	<hr class="uk-margin-top-remove uk-divider-icon">
+</div>
+</br>
+<script src="dist/webpack.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/IFPABelem/IFMatriz/dist/webpack.js"></script>
