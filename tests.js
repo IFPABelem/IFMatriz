@@ -1,3 +1,4 @@
+const antisimetrica = require('./operacoes/antisimetrica')
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
@@ -58,6 +59,23 @@ const f = [
 ]
 console.log('F=', f)
 
+const g = criarMatriz(2, (n, l, c) => {
+	return -1 * n
+})
+console.log('G=', g)
+
+const h = [
+	[0, 4, -5],
+	[-4, 0, 8],
+	[5, -8, 0]
+]
+console.log('H=', h)
+
+console.log('Ant(a)=', antisimetrica(a))
+assert.equal(antisimetrica(a), false)
+console.log('Ant(h)=', antisimetrica(h))
+assert.equal(antisimetrica(h), true)
+
 console.log('Det(a)=', determinante(a))
 assert.equal(determinante(a), -2)
 console.log('Det(b)=', determinante(b))
@@ -78,11 +96,7 @@ console.log('Igu(a, b)=', igualdade(a, b))
 assert.equal(igualdade(a, b), false)
 
 console.log('-1 * a=', multiplicacao(a, -1))
-assert.equal(JSON.stringify(multiplicacao(a, -1)), JSON.stringify(
-	criarMatriz(2, (n, l, c) => {
-		return -1 * n
-	})
-))
+assert.equal(JSON.stringify(multiplicacao(a, -1)), JSON.stringify(g))
 
 console.log('Sim(f)=', simetrica(f))
 assert.equal(simetrica(f), true)

@@ -1,3 +1,4 @@
+const antisimetrica = require('./operacoes/antisimetrica')
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
@@ -70,8 +71,9 @@ const informacao = (id, idNext) => {
 		criarTexto(`Igualdade(${id}, ${idNext}): ${igualdade(matrizes[id], matrizes[idNext]) ? 'Sim' : 'Não'}`)
 	)
 	infoDom.appendChild(
-		criarTexto(`Simetrica(${id}): ${simetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
+		criarTexto(`Simétrica(${id}): ${simetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
 	)
+	infoDom.appendChild(`Anti-simétrica(${id}): ${antisimetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
 }
 
 const criarMatriz = (id, matriz) => {
@@ -131,6 +133,7 @@ document.getElementById('bt:load').addEventListener('click', main, false)
 document.getElementById('sl:ordem').addEventListener('change', main)
 
 module.exports = {
+	antisimetrica
 	determinante,
 	identidade,
 	igualdade,
