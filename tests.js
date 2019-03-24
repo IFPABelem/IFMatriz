@@ -1,6 +1,8 @@
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
+const igualdade = require('./operacoes/igualdade')
 const soma = require('./operacoes/soma')
+const subtracao = require('./operacoes/subtracao')
 const transposta = require('./operacoes/transposta')
 const assert = require('assert')
 
@@ -61,10 +63,16 @@ assert.equal(identidade(a), false)
 console.log('Ide(e)=', identidade(e))
 assert.equal(identidade(e), true)
 
+console.log('Igu(a, a)=', igualdade(a, a))
+assert.equal(igualdade(a, a), true)
+console.log('Igu(a, b)=', igualdade(a, b))
+assert.equal(igualdade(a, b), false)
+
 console.log('a+a=', soma(a, a))
 assert.equal(JSON.stringify(soma(a, a)), JSON.stringify([[2,4],[6,8]]))
-console.log('c-c=', soma(c, c, true))
-assert.equal(JSON.stringify(soma(a, a, true)), JSON.stringify([[0,0],[0,0]]))
+
+console.log('c-c=', subtracao(c, c, true))
+assert.equal(JSON.stringify(subtracao(a, a)), JSON.stringify([[0,0],[0,0]]))
 
 console.log('Tra(a)=', transposta(a))
 assert.equal(JSON.stringify(transposta(a)), JSON.stringify([[1,3], [2,4]]))

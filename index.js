@@ -1,8 +1,10 @@
 const determinante = require('./operacoes/determinante')
+const identidade = require('./operacoes/identidade')
+const igualdade = require('./operacoes/igualdade')
 const soma = require('./operacoes/soma')
-const subtracao = (a, b) => {
-	return soma(a, b, true)
-}
+const subtracao = require('./operacoes/subtracao')
+const transposta = require('./operacoes/transposta')
+
 const ids = ['a', 'b']
 
 let ordem = 3
@@ -51,7 +53,7 @@ const criarTexto = (texto) => {
 	return pDom
 }
 
-const informacao = (id) => {
+const informacao = (id, idNext) => {
 	let infoDom = document.getElementById(`info:${id}`)
 	infoDom.innerHTML = '' //Reset
 	infoDom.appendChild(
@@ -59,6 +61,9 @@ const informacao = (id) => {
 	)
 	infoDom.appendChild(
 		criarTexto(`Identidade: ${identidade(matrizes[id]) ? 'Sim' : 'Não'}`)
+	)
+	infoDom.appendChild(
+		criarTexto(`Igualdade(${id}, ${idNext}): ${igualdade(matrizes[id], matrizes[idNext]) ? 'Sim' : 'Não'}`)
 	)
 }
 
@@ -80,7 +85,8 @@ const main = () => {
 		console.log('Obter dados...')
 		document.getElementById('hidden').className = ''
 		ids.map((id) => {
-			informacao(id)
+			let idNext = ids.filter((i) => i != id)[0]
+			informacao(id, idNext)
 		})
 	}
 	console.log('Feito!')
