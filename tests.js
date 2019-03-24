@@ -1,6 +1,7 @@
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
+const multiplicacao = require('./operacoes/multiplicacao')
 const simetrica = require('./operacoes/simetrica')
 const soma = require('./operacoes/soma')
 const subtracao = require('./operacoes/subtracao')
@@ -75,6 +76,13 @@ console.log('Igu(a, a)=', igualdade(a, a))
 assert.equal(igualdade(a, a), true)
 console.log('Igu(a, b)=', igualdade(a, b))
 assert.equal(igualdade(a, b), false)
+
+console.log('-1 * a=', multiplicacao(a, -1))
+assert.equal(JSON.stringify(multiplicacao(a, -1)), JSON.stringify(
+	criarMatriz(2, (n, l, c) => {
+		return -1 * n
+	})
+))
 
 console.log('Sim(f)=', simetrica(f))
 assert.equal(simetrica(f), true)
