@@ -6,7 +6,6 @@ node_js:
 install:
     - npm install
 script:
-    - npm ls
     - npm version
     - node tests.js
 sudo: true
