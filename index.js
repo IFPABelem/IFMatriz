@@ -45,12 +45,21 @@ const showMatriz = (id) => {
 	}
 }
 
+const criarTexto = (texto) => {
+	let pDom = document.createElement('p')
+	pDom.innerText = texto
+	return pDom
+}
+
 const informacao = (id) => {
 	let infoDom = document.getElementById(`info:${id}`)
 	infoDom.innerHTML = '' //Reset
-	let detDom = document.createElement('p')
-	detDom.innerText = `Determinante é ${determinante(matrizes[id])}`
-	infoDom.appendChild(detDom)
+	infoDom.appendChild(
+		criarTexto(`Determinante: ${determinante(matrizes[id])}`)
+	)
+	infoDom.appendChild(
+		criarTexto(`Identidade: ${identidade(matrizes[id]) ? 'Sim' : 'Não'}`)
+	)
 }
 
 const main = () => {

@@ -1,5 +1,6 @@
 const determinante = require('./operacoes/determinante')
 const soma = require('./operacoes/soma')
+const identidade = require('./operacoes/identidade')
 const assert = require('assert')
 
 const criarMatriz = (ordem, fazer) => {
@@ -39,6 +40,12 @@ const d = criarMatriz(6, (n, l, c) => {
 })
 console.log('D=', d)
 
+const e = criarMatriz(4, (n, l, c) => {
+	if (l == c) return 1
+	return 0
+})
+console.log('E=', e)
+
 console.log('Det(a)=', determinante(a))
 assert.equal(determinante(a), -2)
 console.log('Det(b)=', determinante(b))
@@ -47,6 +54,11 @@ console.log('Det(c)=', determinante(c))
 assert.equal(determinante(c), -860160)
 console.log('Det(d)=', determinante(d))
 assert.equal(determinante(d), 0)
+
+console.log('Ide(a)=', identidade(a))
+assert.equal(identidade(a), false)
+console.log('Ide(e)=', identidade(e))
+assert.equal(identidade(e), true)
 
 console.log('a+a=', soma(a, a))
 assert.equal(JSON.stringify(soma(a, a)), JSON.stringify([[2,4],[6,8]]))
