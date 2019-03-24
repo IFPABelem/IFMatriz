@@ -1,6 +1,8 @@
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
+const multiplicacao = require('./operacoes/multiplicacao')
+const simetrica = require('./operacoes/simetrica')
 const soma = require('./operacoes/soma')
 const subtracao = require('./operacoes/subtracao')
 const transposta = require('./operacoes/transposta')
@@ -19,7 +21,9 @@ const scanerMatriz = (id) => {
 		matrizes[id][l] = []
 		for (let c = 0; c < ordem; c++) {
 			matrizes[id][l].push(
-				document.getElementById(`${id}:${l}:${c}`).value || 0
+				Number(
+					document.getElementById(`${id}:${l}:${c}`).value || 0
+				)
 			)
 		}
 	}
@@ -57,14 +61,39 @@ const informacao = (id, idNext) => {
 	let infoDom = document.getElementById(`info:${id}`)
 	infoDom.innerHTML = '' //Reset
 	infoDom.appendChild(
-		criarTexto(`Determinante: ${determinante(matrizes[id])}`)
+		criarTexto(`Determinante(${id}): ${determinante(matrizes[id])}`)
 	)
 	infoDom.appendChild(
-		criarTexto(`Identidade: ${identidade(matrizes[id]) ? 'Sim' : 'Não'}`)
+		criarTexto(`Identidade(${id}): ${identidade(matrizes[id]) ? 'Sim' : 'Não'}`)
 	)
 	infoDom.appendChild(
 		criarTexto(`Igualdade(${id}, ${idNext}): ${igualdade(matrizes[id], matrizes[idNext]) ? 'Sim' : 'Não'}`)
 	)
+	infoDom.appendChild(
+		criarTexto(`Simetrica(${id}): ${simetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
+	)
+}
+
+const criarMatriz = (id, matriz) => {
+	let matrizDom = document.getElementById(id)
+	matrizDom.innerHTML = '' //Reset
+
+	for (let l = 0; l < ordem; l++) {
+		let linhaDom = document.createElement('tr')
+		linhaDom.style['margin-top'] = 0
+		for (let c = 0; c < ordem; c++) {
+			let elemTd = document.createElement('td')
+			elemTd.textContent = matriz[l][c]
+			linhaDom.appendChild(elemTd)
+		}
+		matrizDom.appendChild(linhaDom)
+	}
+}
+
+const showMatrizDeResultado = (id, idNext) => {
+	criarMatriz(`soma:${id}`, soma(matrizes[id], matrizes[idNext]))
+	criarMatriz(`subtracao:${id}`, subtracao(matrizes[id], matrizes[idNext]))
+	criarMatriz(`transposta:${id}`, transposta(matrizes[id]))
 }
 
 const main = () => {
@@ -87,6 +116,7 @@ const main = () => {
 		ids.map((id) => {
 			let idNext = ids.filter((i) => i != id)[0]
 			informacao(id, idNext)
+			showMatrizDeResultado(id, idNext)
 		})
 	}
 	console.log('Feito!')
@@ -102,6 +132,11 @@ document.getElementById('sl:ordem').addEventListener('change', main)
 
 module.exports = {
 	determinante,
+	identidade,
+	igualdade,
+	multiplicacao,
+	simetrica,
 	soma,
-	subtracao
+	subtracao,
+	transposta
 }
