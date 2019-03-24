@@ -1,6 +1,7 @@
 const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
+const simetrica = require('./operacoes/simetrica')
 const soma = require('./operacoes/soma')
 const subtracao = require('./operacoes/subtracao')
 const transposta = require('./operacoes/transposta')
@@ -49,6 +50,13 @@ const e = criarMatriz(4, (n, l, c) => {
 })
 console.log('E=', e)
 
+const f = [
+	[2, 3, 5],
+	[3, 4, 8],
+	[5, 8, -9]
+]
+console.log('F=', f)
+
 console.log('Det(a)=', determinante(a))
 assert.equal(determinante(a), -2)
 console.log('Det(b)=', determinante(b))
@@ -67,6 +75,11 @@ console.log('Igu(a, a)=', igualdade(a, a))
 assert.equal(igualdade(a, a), true)
 console.log('Igu(a, b)=', igualdade(a, b))
 assert.equal(igualdade(a, b), false)
+
+console.log('Sim(f)=', simetrica(f))
+assert.equal(simetrica(f), true)
+console.log('Sim(a)=', simetrica(a))
+assert.equal(simetrica(a), false)
 
 console.log('a+a=', soma(a, a))
 assert.equal(JSON.stringify(soma(a, a)), JSON.stringify([[2,4],[6,8]]))
