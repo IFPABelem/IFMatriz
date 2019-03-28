@@ -3,6 +3,7 @@ const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
 const multiplicacao = require('./operacoes/multiplicacao')
+const produto = require('./operacoes/produto')
 const simetrica = require('./operacoes/simetrica')
 const soma = require('./operacoes/soma')
 const subtracao = require('./operacoes/subtracao')
@@ -97,6 +98,9 @@ assert.equal(igualdade(a, b), false)
 
 console.log('-1 * a=', multiplicacao(a, -1))
 assert.equal(JSON.stringify(multiplicacao(a, -1)), JSON.stringify(g))
+
+console.log('a * a=', produto(a, a))
+assert.equal(JSON.stringify(produto(a, a)), JSON.stringify([[7,10],[15,22]]))
 
 console.log('Sim(f)=', simetrica(f))
 assert.equal(simetrica(f), true)

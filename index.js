@@ -3,6 +3,7 @@ const determinante = require('./operacoes/determinante')
 const identidade = require('./operacoes/identidade')
 const igualdade = require('./operacoes/igualdade')
 const multiplicacao = require('./operacoes/multiplicacao')
+const produto = require('./operacoes/produto')
 const simetrica = require('./operacoes/simetrica')
 const soma = require('./operacoes/soma')
 const subtracao = require('./operacoes/subtracao')
@@ -73,7 +74,9 @@ const informacao = (id, idNext) => {
 	infoDom.appendChild(
 		criarTexto(`Simétrica(${id}): ${simetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
 	)
-	infoDom.appendChild(`Anti-simétrica(${id}): ${antisimetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
+	infoDom.appendChild(
+		criarTexto(`Anti-simétrica(${id}): ${antisimetrica(matrizes[id]) ? 'Sim' : 'Não'}`)
+	)
 }
 
 const criarMatriz = (id, matriz) => {
@@ -95,6 +98,7 @@ const criarMatriz = (id, matriz) => {
 const showMatrizDeResultado = (id, idNext) => {
 	criarMatriz(`soma:${id}`, soma(matrizes[id], matrizes[idNext]))
 	criarMatriz(`subtracao:${id}`, subtracao(matrizes[id], matrizes[idNext]))
+	criarMatriz(`produto:${id}`, produto(matrizes[id], matrizes[idNext]))
 	criarMatriz(`transposta:${id}`, transposta(matrizes[id]))
 }
 
@@ -133,11 +137,12 @@ document.getElementById('bt:load').addEventListener('click', main, false)
 document.getElementById('sl:ordem').addEventListener('change', main)
 
 module.exports = {
-	antisimetrica
+	antisimetrica,
 	determinante,
 	identidade,
 	igualdade,
 	multiplicacao,
+	produto,
 	simetrica,
 	soma,
 	subtracao,
