@@ -1,5 +1,5 @@
 {
-  "name": "IFMatriz",
+  "name": "ifmatriz",
   "main": "index.js",
   "version": "1.0.0",
   "description": "Web App feito para disciplinar de Calculo I - 2018.02, realizar operações com matrizes quadradas",
@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "start": "npx webpack",
-    "build": "npx webpack --mode production",
-    "test": "node tests.js"
+    "test": "node tests.js",
+    "build": "npx webpack --mode production"
   },
   "private": false,
   "repository": "https://github.com/IFPABelem/IFMatriz.git",
@@ -33,6 +33,7 @@
   "files": [
     "LICENSE",
     "README.md",
+    "default.html",
     "dist",
     "index.html",
     "index.js",

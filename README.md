@@ -1,6 +1,6 @@
 # IFMatriz
-[![Version](https://img.shields.io/npm/v/IFMatriz.svg?style=flat-square)](https://npmjs.org/package/IFMatriz)
-[![Downloads](https://img.shields.io/npm/dt/IFMatriz.svg?style=flat-square)](https://npmjs.org/package/IFMatriz)
+[![Version](https://img.shields.io/npm/v/ifmatriz.svg?style=flat-square)](https://npmjs.org/package/ifmatriz)
+[![Downloads](https://img.shields.io/npm/dt/ifmatriz.svg?style=flat-square)](https://npmjs.org/package/ifmatriz)
 [![Travis](https://img.shields.io/travis/IFPABelem/IFMatriz.svg?branch=master&style=flat-square)](https://travis-ci.org/IFPABelem/IFMatriz)
 
 Web App feito para disciplinar de Calculo I - 2018.02, realizar operações com matrizes quadradas
@@ -16,9 +16,9 @@ command line tools.
 
 ```sh
 # NPM
-npm install IFMatriz --save
+npm install ifmatriz --save
 # Or Using Yarn
-yarn add IFMatriz
+yarn add ifmatriz
 ```
 
 
@@ -45,4 +45,4 @@ Pull requests and stars are always welcome. For bugs and feature requests, pleas
 
 
 ## License
-[MIT](LICENSE) © [IFPA Projetos](https://github.com/IFPABelem)
+[MIT](LICENSE) © [Tiago Danin](https://TiagoDanin.github.io)
