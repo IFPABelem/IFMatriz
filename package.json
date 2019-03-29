@@ -1,7 +1,7 @@
 {
   "name": "ifmatriz",
   "main": "index.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Web App feito para disciplinar de Calculo I - 2018.02, realizar operações com matrizes quadradas",
   "author": {
     "name": "Tiago Danin",
