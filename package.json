@@ -44,7 +44,7 @@
     "yarn.lock"
   ],
   "devDependencies": {
-    "webpack": "4.40.1",
+    "webpack": "4.40.2",
     "webpack-cli": "3.3.8"
   }
 }
